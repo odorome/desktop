@@ -820,7 +820,7 @@ export class FilterChangesList extends React.Component<
       this.getOpenInExternalEditorMenuItem(file, enabled),
       {
         label: OpenWithDefaultProgramLabel,
-        action: () => this.props.onOpenItem(path),
+        action: () => this.props.onOpenItem(file.path),
         enabled: enabled && isSafeExtension,
       }
     )
@@ -1115,7 +1115,7 @@ export class FilterChangesList extends React.Component<
   }
 
   private onChangedFileDoubleClick = (item: IChangesListItem) => {
-    this.props.onOpenItemInExternalEditor(item.change.path)
+    this.props.onOpenItem(item.change.path)
   }
 
   private onItemKeyDown = (
